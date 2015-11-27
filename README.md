@@ -1,2 +1,2 @@
 # dfp_demo
-Google DoubleClick demo for El Universla partners
+Google DoubleClick demo for El Universal partners
