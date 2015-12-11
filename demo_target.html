@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Demo de target key - El Universal - Go2usa</title>
+<script type="text/javascript">
+// getting parameters from url
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+</script>
+<!-- degin DFP REQUIRED includes -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+    <!------ Inicio Ad Server de Google DFP ------>
+    (function() {
+        var useSSL = 'https:' == document.location.protocol;
+        var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+        document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+    })();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+    googletag.cmd.push(function() {
+      var mapping_right = googletag.sizeMapping().
+        addSize([320, 400], [[300,250], [300,600], [300,400], [300,100]]).
+        addSize([320, 700], [[300,250], [300,600], [300,400], [300,100]]).
+        addSize([480, 200], [[300,250], [300,600], [300,400], [300,100]]).
+        addSize([768, 200], [0,0]).
+        addSize([980, 200], [[300,250], [300,600], [300,400], [300,100]]).
+        addSize([1000, 200], [[300,250], [300,600], [300,400], [300,100]]).
+      build();
+      
+      
+        var nota = getUrlParameter('nota');
+        var site = getUrlParameter('site');
+        
+        if(site == 'undefined'){
+            //DO SOMETHING
+            site='www.viveusa.com';
+            googletag.defineSlot('/178068052/'+site+'/fotogalerias/portada_right1', [300, 250], 'div-dfp-right1').defineSizeMapping(mapping_right).addService(googletag.pubads()).setCollapseEmptyDiv(true,true);
+        }
+        else {
+            googletag.defineSlot('/178068052/'+site+'/home/portada_right1', [300, 250],     'div-dfp-right1').defineSizeMapping(mapping_right).addService(googletag.pubads()).setCollapseEmptyDiv(true,true);
+        }
+
+      googletag.pubads().enableSyncRendering();
+
+        if(nota !== 'undefined'){
+          //DO SOMETHING
+            googletag.pubads().setTargeting('nota',nota);
+        };
+
+/*    googletag.pubads().enableSingleRequest();    */
+
+    googletag.enableServices();
+    });
+
+    <!------ Fin de Ad Server de Google DFP ------>
+    
+//--><!]]>
+</script>
+</head>
+<body>
+<div id='div-dfp-right1' class='dfp_slot' >
+  <span class='line'>
+    <script type='text/javascript'>
+		  googletag.cmd.push(function() { googletag.display('div-dfp-right1'); });
+ 	  </script>
+  </span>
+</div>
+</body>
+</html>
